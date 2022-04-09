@@ -1,6 +1,6 @@
 package com.matj.bet.management.api.rest.stake;
 
-import com.matj.bet.management.api.dto.response.StakeResponseDto;
+import com.matj.bet.management.api.dto.response.stake.StakeResponseDto;
 import io.swagger.v3.oas.annotations.Operation;
 import java.util.List;
 import org.springframework.http.HttpStatus;

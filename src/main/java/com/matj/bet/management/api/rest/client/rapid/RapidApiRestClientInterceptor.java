@@ -20,9 +20,9 @@ public class RapidApiRestClientInterceptor implements Interceptor {
   @Override
   public Response intercept(Interceptor.Chain chain) throws IOException {
     var original = chain.request();
-    var requestBuilder = original.newBuilder() //
-        .headers(Headers.of( //
-            HEADER_HOST, environment.getProperty("api.rapid.host.url"), //
+    var requestBuilder = original.newBuilder()
+        .headers(Headers.of(
+            HEADER_HOST, environment.getProperty("api.rapid.host.url"),
             HEADER_KEY, environment.getProperty("api.rapid.key.secret")));
     return chain.proceed(requestBuilder.build());
   }

@@ -1,6 +1,6 @@
 package com.matj.bet.management.api.rest.client.rapid.football;
 
-import java.util.List;
+import com.matj.bet.management.api.dto.model.team.TeamListModelDto;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -8,5 +8,5 @@ import retrofit2.http.Query;
 public interface FootballTeamsRestClient {
 
   @GET("teams")
-  Call<List<Object>> searchByName(@Query("search") String name);
+  Call<TeamListModelDto> findByName(@Query("search") String name);
 }

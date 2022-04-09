@@ -23,8 +23,8 @@ public class RapidApiConfiguration {
 
   @Bean
   public FootballTeamsRestClient getSoeAuthRestClientProducer() {
-    return RetrofitProvider.getInstance(environment.getProperty(FOOTBALL_URL), //
-        TIMEOUT_HTTP, getRapidApiRestClientInterceptor()) //
+    return RetrofitProvider.getInstance(environment.getProperty(FOOTBALL_URL),
+        TIMEOUT_HTTP, getRapidApiRestClientInterceptor())
         .create(FootballTeamsRestClient.class);
   }
 }

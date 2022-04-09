@@ -1,6 +1,6 @@
 package com.matj.bet.management.api.service.stake.impl;
 
-import com.matj.bet.management.api.dto.model.StakeModelDto;
+import com.matj.bet.management.api.dto.model.stake.StakeModelDto;
 import com.matj.bet.management.api.mapper.StakeMapper;
 import com.matj.bet.management.api.repository.stake.StakeRepository;
 import com.matj.bet.management.api.service.stake.FindStakeByIdService;
