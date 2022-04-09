@@ -1,6 +1,7 @@
 package com.matj.bet.management.api.service.stake.violation;
 
 import static com.matj.bet.management.api.service.stake.violation.StakeViolationMessageKey.STAKE_ALREADY_REGISTERED;
+
 import com.matj.bet.management.api.entity.StakeEntity;
 import com.matj.bet.management.api.exception.BusinessViolationException;
 import com.matj.bet.management.api.provider.MessageProvider;
