@@ -4,7 +4,7 @@ import com.matj.bet.management.api.dto.request.method.MethodRequestDto;
 import com.matj.bet.management.api.mapper.MethodMapper;
 import com.matj.bet.management.api.provider.MessageProvider;
 import com.matj.bet.management.api.rest.method.CreateMethodRest;
-import com.matj.bet.management.api.rest.stake.StakeMessageKey;
+import com.matj.bet.management.api.rest.method.MethodMessageKey;
 import com.matj.bet.management.api.service.method.CreateMethodService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,6 +24,6 @@ public class CreateMethodRestImpl implements CreateMethodRest {
   @Override
   public String create(MethodRequestDto requestDto) {
     service.execute(mapper.toModelDto(requestDto));
-    return messageProvider.get(StakeMessageKey.CREATED.getKey());
+    return messageProvider.get(MethodMessageKey.CREATED.getKey());
   }
 }

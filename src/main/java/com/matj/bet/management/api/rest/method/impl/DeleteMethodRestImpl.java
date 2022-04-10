@@ -2,7 +2,7 @@ package com.matj.bet.management.api.rest.method.impl;
 
 import com.matj.bet.management.api.provider.MessageProvider;
 import com.matj.bet.management.api.rest.method.DeleteMethodRest;
-import com.matj.bet.management.api.rest.stake.StakeMessageKey;
+import com.matj.bet.management.api.rest.method.MethodMessageKey;
 import com.matj.bet.management.api.service.method.DeleteMethodService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,6 +19,6 @@ public class DeleteMethodRestImpl implements DeleteMethodRest {
   @Override
   public String delete(String id) {
     service.execute(id);
-    return messageProvider.get(StakeMessageKey.DELETED.getKey());
+    return messageProvider.get(MethodMessageKey.DELETED.getKey());
   }
 }
