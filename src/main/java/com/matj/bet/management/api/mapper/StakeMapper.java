@@ -6,14 +6,37 @@ import com.matj.bet.management.api.dto.response.stake.StakeResponseDto;
 import com.matj.bet.management.api.entity.StakeEntity;
 import org.mapstruct.Mapper;
 
-@Mapper(componentModel = "spring")
-public interface StakeMapper {
+@Mapper
+public class StakeMapper {
 
-  StakeEntity toEntity(StakeModelDto requestDto);
+  public StakeEntity toEntity(StakeModelDto requestDto) {
+    var entity = new StakeEntity();
+    entity.setId(requestDto.getId());
+    entity.setSize(requestDto.getSize());
+    entity.setWeight(requestDto.getWeight());
+    return entity;
+  }
 
-  StakeResponseDto toResponseDto(StakeModelDto modelDto);
+  public StakeResponseDto toResponseDto(StakeModelDto modelDto) {
+    var responseDto = new StakeResponseDto();
+    responseDto.setId(modelDto.getId());
+    responseDto.setSize(modelDto.getSize());
+    responseDto.setWeight(modelDto.getWeight());
+    return responseDto;
+  }
 
-  StakeModelDto toModelDto(StakeEntity entity);
+  public StakeModelDto toModelDto(StakeEntity entity) {
+    var modelDto = new StakeModelDto();
+    modelDto.setId(entity.getId());
+    modelDto.setSize(entity.getSize());
+    modelDto.setWeight(entity.getWeight());
+    return modelDto;
+  }
 
-  StakeModelDto toModelDto(StakeRequestDto requestDto);
+  public StakeModelDto toModelDto(StakeRequestDto requestDto) {
+    var modelDto = new StakeModelDto();
+    modelDto.setSize(requestDto.getSize());
+    modelDto.setWeight(requestDto.getWeight());
+    return modelDto;
+  }
 }
