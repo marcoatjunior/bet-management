@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class FindMethodBySizeServiceImpl implements FindMethodByIdService {
+public class FindMethodByIdServiceImpl implements FindMethodByIdService {
 
   @Autowired
   private MethodRepository repository;

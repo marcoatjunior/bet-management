@@ -1,6 +1,5 @@
 package com.matj.bet.management.api.entity;
 
-import com.matj.bet.management.api.dto.model.team.TeamModelDto;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
@@ -25,10 +24,10 @@ public class BetEntity {
   private String league;
 
   @DBRef
-  private TeamModelDto home;
+  private TeamEntity home;
   
   @DBRef
-  private TeamModelDto away;
+  private TeamEntity away;
   
   private String bet;
 

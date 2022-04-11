@@ -6,6 +6,7 @@ import com.matj.bet.management.api.dto.request.team.TeamRequestDto;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import javax.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
@@ -13,11 +14,24 @@ public class BetRequestDto implements Serializable {
   
   private static final long serialVersionUID = -384732984732984L;
 
+  @NotNull
   private LocalDateTime time;
+  
+  @NotNull
   private String league;
+
+  @NotNull
   private TeamRequestDto home;
+
+  @NotNull
   private TeamRequestDto away;
+
+  @NotNull
   private MethodRequestDto method;
+
+  @NotNull
   private StakeRequestDto stake;
+
+  @NotNull
   private BigDecimal odd;
 }

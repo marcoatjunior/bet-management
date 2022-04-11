@@ -23,8 +23,8 @@ public class BetMapper {
     entity.setId(modelDto.getId());
     entity.setTime(modelDto.getTime());
     entity.setLeague(modelDto.getLeague());
-    entity.setHome(modelDto.getHome());
-    entity.setAway(modelDto.getAway());
+    entity.setHome(teamMapper.toEntity(modelDto.getHome()));
+    entity.setAway(teamMapper.toEntity(modelDto.getAway()));
     entity.setBet(modelDto.getBet());
     entity.setMethod(methodMapper.toEntity(modelDto.getMethod()));
     entity.setStake(stakeMapper.toEntity(modelDto.getStake()));
