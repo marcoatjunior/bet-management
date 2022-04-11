@@ -8,14 +8,11 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TeamModelDto implements Serializable {
 
-  private static final long serialVersionUID = 8731623872168371L;
+  private static final long serialVersionUID = -83473284632L;
 
-  private Long id;
+  private String id;
+  private Long apiId;
   private String name;
-  private String code;
-  private String country;
-  private Long founded;
-  private Boolean national;
   private String logo;
 
 }

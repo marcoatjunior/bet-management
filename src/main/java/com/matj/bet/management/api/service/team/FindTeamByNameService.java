@@ -1,9 +1,9 @@
 package com.matj.bet.management.api.service.team;
 
-import com.matj.bet.management.api.dto.model.team.TeamModelDto;
+import com.matj.bet.management.api.dto.model.team.api.TeamApiModelDto;
 import java.util.List;
 
 public interface FindTeamByNameService {
 
-  List<TeamModelDto> execute(String name);
+  List<TeamApiModelDto> execute(String name);
 }

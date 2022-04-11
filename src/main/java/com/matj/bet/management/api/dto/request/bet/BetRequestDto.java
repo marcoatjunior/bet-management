@@ -1,5 +1,6 @@
 package com.matj.bet.management.api.dto.request.bet;
 
+import com.matj.bet.management.api.dto.request.league.LeagueRequestDto;
 import com.matj.bet.management.api.dto.request.method.MethodRequestDto;
 import com.matj.bet.management.api.dto.request.stake.StakeRequestDto;
 import com.matj.bet.management.api.dto.request.team.TeamRequestDto;
@@ -18,7 +19,7 @@ public class BetRequestDto implements Serializable {
   private LocalDateTime time;
   
   @NotNull
-  private String league;
+  private LeagueRequestDto league;
 
   @NotNull
   private TeamRequestDto home;

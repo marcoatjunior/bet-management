@@ -1,5 +1,6 @@
 package com.matj.bet.management.api.dto.model.bet;
 
+import com.matj.bet.management.api.dto.model.league.LeagueModelDto;
 import com.matj.bet.management.api.dto.model.method.MethodModelDto;
 import com.matj.bet.management.api.dto.model.stake.StakeModelDto;
 import com.matj.bet.management.api.dto.model.team.TeamModelDto;
@@ -15,7 +16,7 @@ public class BetModelDto implements Serializable {
 
   private String id;
   private LocalDateTime time;
-  private String league;
+  private LeagueModelDto league;
   private TeamModelDto home;
   private TeamModelDto away;
   private String bet;

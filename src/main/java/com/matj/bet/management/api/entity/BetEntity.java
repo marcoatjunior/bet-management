@@ -21,7 +21,9 @@ public class BetEntity {
   private String id;
   
   private LocalDateTime time;
-  private String league;
+
+  @DBRef
+  private LeagueEntity league;
 
   @DBRef
   private TeamEntity home;

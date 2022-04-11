@@ -16,13 +16,16 @@ public class BetMapper {
   private StakeMapper stakeMapper;
 
   @Autowired
+  private LeagueMapper leagueMapper;
+
+  @Autowired
   private TeamMapper teamMapper;
 
   public BetEntity toEntity(BetModelDto modelDto) {
     var entity = new BetEntity();
     entity.setId(modelDto.getId());
     entity.setTime(modelDto.getTime());
-    entity.setLeague(modelDto.getLeague());
+    entity.setLeague(leagueMapper.toEntity(modelDto.getLeague()));
     entity.setHome(teamMapper.toEntity(modelDto.getHome()));
     entity.setAway(teamMapper.toEntity(modelDto.getAway()));
     entity.setBet(modelDto.getBet());
@@ -36,7 +39,7 @@ public class BetMapper {
   public BetModelDto toModelDto(BetRequestDto requestDto) {
     var modelDto = new BetModelDto();
     modelDto.setTime(requestDto.getTime());
-    modelDto.setLeague(requestDto.getLeague());
+    modelDto.setLeague(leagueMapper.toModelDto(requestDto.getLeague()));
     modelDto.setHome(teamMapper.toModelDto(requestDto.getHome()));
     modelDto.setAway(teamMapper.toModelDto(requestDto.getAway()));
     modelDto.setMethod(methodMapper.toModelDto(requestDto.getMethod()));

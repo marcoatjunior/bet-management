@@ -16,6 +16,7 @@ public class TeamEntity {
 
   @Id
   private String id;
+  private Long apiId;
   private String name;
   private String logo;
 }
