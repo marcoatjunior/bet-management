@@ -22,8 +22,8 @@ public class CreateStakeServiceImpl implements CreateStakeService {
 
   @Override
   public void execute(StakeModelDto modelDto) {
-    var entities = repository.findBySize(modelDto.getSize());
-    validator.validate(entities);
+    var entity = repository.findBySize(modelDto.getSize());
+    validator.validate(entity);
     repository.insert(mapper.toEntity(modelDto));
   }
 
