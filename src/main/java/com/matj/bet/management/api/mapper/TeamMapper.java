@@ -3,9 +3,9 @@ package com.matj.bet.management.api.mapper;
 import com.matj.bet.management.api.dto.model.team.TeamModelDto;
 import com.matj.bet.management.api.dto.request.team.TeamRequestDto;
 import com.matj.bet.management.api.dto.response.team.TeamResponseDto;
-import org.mapstruct.Mapper;
+import org.springframework.stereotype.Component;
 
-@Mapper
+@Component
 public class TeamMapper {
 
   public TeamResponseDto toResponseDto(TeamModelDto modelDto) {

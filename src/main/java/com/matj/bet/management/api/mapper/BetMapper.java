@@ -3,10 +3,10 @@ package com.matj.bet.management.api.mapper;
 import com.matj.bet.management.api.dto.model.bet.BetModelDto;
 import com.matj.bet.management.api.dto.request.bet.BetRequestDto;
 import com.matj.bet.management.api.entity.BetEntity;
-import org.mapstruct.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-@Mapper
+@Component
 public class BetMapper {
 
   @Autowired

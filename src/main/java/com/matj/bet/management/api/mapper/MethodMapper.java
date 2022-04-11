@@ -4,9 +4,9 @@ import com.matj.bet.management.api.dto.model.method.MethodModelDto;
 import com.matj.bet.management.api.dto.request.method.MethodRequestDto;
 import com.matj.bet.management.api.dto.response.method.MethodResponseDto;
 import com.matj.bet.management.api.entity.MethodEntity;
-import org.mapstruct.Mapper;
+import org.springframework.stereotype.Component;
 
-@Mapper
+@Component
 public class MethodMapper {
 
   public MethodEntity toEntity(MethodModelDto requestDto) {

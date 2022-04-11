@@ -4,9 +4,9 @@ import com.matj.bet.management.api.dto.model.stake.StakeModelDto;
 import com.matj.bet.management.api.dto.request.stake.StakeRequestDto;
 import com.matj.bet.management.api.dto.response.stake.StakeResponseDto;
 import com.matj.bet.management.api.entity.StakeEntity;
-import org.mapstruct.Mapper;
+import org.springframework.stereotype.Component;
 
-@Mapper
+@Component
 public class StakeMapper {
 
   public StakeEntity toEntity(StakeModelDto requestDto) {
