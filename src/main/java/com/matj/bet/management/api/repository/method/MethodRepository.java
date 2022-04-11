@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface MethodRepository extends MongoRepository<MethodEntity, String> {
 
-  Optional<MethodEntity> findByName(String size);
+  Optional<MethodEntity> findByName(String name);
 }
