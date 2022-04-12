@@ -19,7 +19,7 @@ public class ListLeagueServiceImpl implements ListLeagueService {
 
   @Override
   public List<LeagueModelDto> execute() {
-    return repository.findAll().stream().map(mapper::toModelDto).toList();
+    return repository.findAll().stream().map(mapper::toModel).toList();
   }
 
 }

@@ -23,7 +23,7 @@ public class FindLeagueByIdServiceImpl implements FindLeagueByIdService {
   @Override
   public LeagueModelDto execute(String id) {
     var entity = validator.validate(repository.findById(id));
-    return mapper.toModelDto(entity);
+    return mapper.toModel(entity);
   }
 
 }

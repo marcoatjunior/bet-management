@@ -1,7 +1,7 @@
 package com.matj.bet.management.api.rest.method.impl;
 
+import com.matj.bet.management.api.converter.request.MethodRequestConverter;
 import com.matj.bet.management.api.dto.request.method.MethodRequestDto;
-import com.matj.bet.management.api.mapper.MethodMapper;
 import com.matj.bet.management.api.provider.MessageProvider;
 import com.matj.bet.management.api.rest.method.CreateMethodRest;
 import com.matj.bet.management.api.rest.method.MethodMessageKey;
@@ -16,14 +16,14 @@ public class CreateMethodRestImpl implements CreateMethodRest {
   private CreateMethodService service;
 
   @Autowired
-  private MethodMapper mapper;
+  private MethodRequestConverter converter;
 
   @Autowired
   private MessageProvider messageProvider;
 
   @Override
   public String create(MethodRequestDto requestDto) {
-    service.execute(mapper.toModelDto(requestDto));
+    service.execute(converter.toModel(requestDto));
     return messageProvider.get(MethodMessageKey.CREATED.getKey());
   }
 }

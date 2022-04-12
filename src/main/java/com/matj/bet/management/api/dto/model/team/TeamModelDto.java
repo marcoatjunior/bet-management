@@ -2,9 +2,11 @@ package com.matj.bet.management.api.dto.model.team;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
+import lombok.Builder;
 import lombok.Data;
 
 @Data
+@Builder
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TeamModelDto implements Serializable {
 

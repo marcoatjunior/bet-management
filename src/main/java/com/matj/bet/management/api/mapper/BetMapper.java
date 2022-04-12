@@ -1,8 +1,6 @@
 package com.matj.bet.management.api.mapper;
 
 import com.matj.bet.management.api.dto.model.bet.BetModelDto;
-import com.matj.bet.management.api.dto.request.bet.BetRequestDto;
-import com.matj.bet.management.api.dto.response.bet.BetResponseDto;
 import com.matj.bet.management.api.entity.BetEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -37,41 +35,18 @@ public class BetMapper {
     return entity;
   }
 
-  public BetModelDto toModelDto(BetEntity entity) {
+  public BetModelDto toModel(BetEntity entity) {
     return BetModelDto.builder()
         .id(entity.getId())
         .eventDate(entity.getEventDate())
-        .league(leagueMapper.toModelDto(entity.getLeague()))
-        .home(teamMapper.toModelDto(entity.getHome()))
-        .away(teamMapper.toModelDto(entity.getAway()))
+        .league(leagueMapper.toModel(entity.getLeague()))
+        .home(teamMapper.toModel(entity.getHome()))
+        .away(teamMapper.toModel(entity.getAway()))
         .bet(entity.getBet())
-        .method(methodMapper.toModelDto(entity.getMethod()))
-        .stake(stakeMapper.toModelDto(entity.getStake()))
+        .method(methodMapper.toModel(entity.getMethod()))
+        .stake(stakeMapper.toModel(entity.getStake()))
         .odd(entity.getOdd())
         .result(entity.getResult())
-        .build();
-  }
-
-  public BetModelDto toModelDto(BetRequestDto requestDto) {
-    return BetModelDto.builder()
-        .eventDate(requestDto.getEventDate())
-        .bet(requestDto.getBet())
-        .odd(requestDto.getOdd())
-        .build();
-  }
-
-  public BetResponseDto toResponseDto(BetModelDto modelDto) {
-    return BetResponseDto.builder()
-        .id(modelDto.getId())
-        .eventDate(modelDto.getEventDate())
-        .league(modelDto.getLeague().getName())
-        .home(modelDto.getHome().getName())
-        .away(modelDto.getAway().getName())
-        .bet(modelDto.getBet())
-        .method(modelDto.getMethod().getName())
-        .stake(modelDto.getStake().getWeight())
-        .odd(modelDto.getOdd())
-        .result(modelDto.getResult())
         .build();
   }
 }

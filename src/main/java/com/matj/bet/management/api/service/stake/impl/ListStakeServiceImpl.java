@@ -19,7 +19,7 @@ public class ListStakeServiceImpl implements ListStakeService {
 
   @Override
   public List<StakeModelDto> execute() {
-    return repository.findAll().stream().map(mapper::toModelDto).toList();
+    return repository.findAll().stream().map(mapper::toModel).toList();
   }
 
 }

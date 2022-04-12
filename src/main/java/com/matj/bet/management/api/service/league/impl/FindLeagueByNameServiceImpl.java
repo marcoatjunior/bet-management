@@ -23,7 +23,7 @@ public class FindLeagueByNameServiceImpl implements FindLeagueByNameService {
   @Override
   public LeagueModelDto execute(String name) {
     var entity = validator.validate(repository.findByName(name));
-    return mapper.toModelDto(entity);
+    return mapper.toModel(entity);
   }
 
 }

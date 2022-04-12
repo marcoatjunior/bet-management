@@ -23,7 +23,7 @@ public class FindTeamByIdServiceImpl implements FindTeamByIdService {
   @Override
   public TeamModelDto execute(String id) {
     var entity = validator.validate(repository.findById(id));
-    return mapper.toModelDto(entity);
+    return mapper.toModel(entity);
   }
 
 }

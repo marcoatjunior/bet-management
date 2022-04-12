@@ -19,7 +19,7 @@ public class ListMethodServiceImpl implements ListMethodService {
 
   @Override
   public List<MethodModelDto> execute() {
-    return repository.findAll().stream().map(mapper::toModelDto).toList();
+    return repository.findAll().stream().map(mapper::toModel).toList();
   }
 
 }

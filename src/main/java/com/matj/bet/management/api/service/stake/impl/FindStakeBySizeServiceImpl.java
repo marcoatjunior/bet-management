@@ -23,7 +23,7 @@ public class FindStakeBySizeServiceImpl implements FindStakeBySizeService {
   @Override
   public StakeModelDto execute(String size) {
     var entity = validator.validate(repository.findBySize(size));
-    return mapper.toModelDto(entity);
+    return mapper.toModel(entity);
   }
 
 }

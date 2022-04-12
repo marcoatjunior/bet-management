@@ -22,7 +22,7 @@ public class FindTeamByNameServiceImpl implements FindTeamByNameService {
   public List<TeamModelDto> execute(String name) {
     return repository.findByName(name)
         .stream()
-        .map(mapper::toModelDto)
+        .map(mapper::toModel)
         .sorted(Comparator.comparing(TeamModelDto::getName))
         .toList();
   }

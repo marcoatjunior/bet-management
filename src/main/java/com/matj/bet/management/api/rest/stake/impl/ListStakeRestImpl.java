@@ -1,7 +1,7 @@
 package com.matj.bet.management.api.rest.stake.impl;
 
+import com.matj.bet.management.api.converter.response.StakeResponseConverter;
 import com.matj.bet.management.api.dto.response.stake.StakeResponseDto;
-import com.matj.bet.management.api.mapper.StakeMapper;
 import com.matj.bet.management.api.rest.stake.ListStakeRest;
 import com.matj.bet.management.api.service.stake.ListStakeService;
 import java.util.List;
@@ -15,11 +15,10 @@ public class ListStakeRestImpl implements ListStakeRest {
   private ListStakeService service;
 
   @Autowired
-  private StakeMapper mapper;
+  private StakeResponseConverter converter;
 
   @Override
   public List<StakeResponseDto> list() {
-    return service.execute().stream().map(mapper::toResponseDto).toList();
+    return service.execute().stream().map(converter::toResponse).toList();
   }
-
 }

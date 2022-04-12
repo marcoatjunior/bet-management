@@ -1,7 +1,7 @@
 package com.matj.bet.management.api.rest.method.impl;
 
+import com.matj.bet.management.api.converter.response.MethodResponseConverter;
 import com.matj.bet.management.api.dto.response.method.MethodResponseDto;
-import com.matj.bet.management.api.mapper.MethodMapper;
 import com.matj.bet.management.api.rest.method.FindMethodByIdRest;
 import com.matj.bet.management.api.service.method.FindMethodByIdService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +14,11 @@ public class FindMethodByIdRestImpl implements FindMethodByIdRest {
   private FindMethodByIdService service;
 
   @Autowired
-  private MethodMapper mapper;
+  private MethodResponseConverter converter;
 
   @Override
   public MethodResponseDto findById(String id) {
-    return mapper.toResponseDto(service.execute(id));
+    return converter.toResponse(service.execute(id));
   }
 
 }

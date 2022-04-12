@@ -23,7 +23,7 @@ public class FindStakeByIdServiceImpl implements FindStakeByIdService {
   @Override
   public StakeModelDto execute(String id) {
     var entity = validator.validate(repository.findById(id));
-    return mapper.toModelDto(entity);
+    return mapper.toModel(entity);
   }
 
 }

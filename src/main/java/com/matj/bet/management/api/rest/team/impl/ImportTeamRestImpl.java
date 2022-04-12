@@ -1,5 +1,6 @@
 package com.matj.bet.management.api.rest.team.impl;
 
+import com.matj.bet.management.api.dto.request.team.TeamRequestDto;
 import com.matj.bet.management.api.provider.MessageProvider;
 import com.matj.bet.management.api.rest.team.ImportTeamRest;
 import com.matj.bet.management.api.rest.team.TeamMessageKey;
@@ -18,8 +19,8 @@ public class ImportTeamRestImpl implements ImportTeamRest {
   private MessageProvider messageProvider;
 
   @Override
-  public String doImport(String name) {
-    service.execute(name);
+  public String doImport(TeamRequestDto requestDto) {
+    service.execute(requestDto.getName());
     return messageProvider.get(TeamMessageKey.IMPORTED.getKey());
   }
 }

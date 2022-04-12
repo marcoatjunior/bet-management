@@ -23,7 +23,7 @@ public class FindMethodByNameServiceImpl implements FindMethodByNameService {
   @Override
   public MethodModelDto execute(String name) {
     var entity = validator.validate(repository.findByName(name));
-    return mapper.toModelDto(entity);
+    return mapper.toModel(entity);
   }
 
 }

@@ -23,7 +23,7 @@ public class FindMethodByIdServiceImpl implements FindMethodByIdService {
   @Override
   public MethodModelDto execute(String id) {
     var entity = validator.validate(repository.findById(id));
-    return mapper.toModelDto(entity);
+    return mapper.toModel(entity);
   }
 
 }

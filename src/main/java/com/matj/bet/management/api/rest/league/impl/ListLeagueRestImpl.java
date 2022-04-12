@@ -1,7 +1,7 @@
 package com.matj.bet.management.api.rest.league.impl;
 
+import com.matj.bet.management.api.converter.response.LeagueResponseConverter;
 import com.matj.bet.management.api.dto.response.league.LeagueResponseDto;
-import com.matj.bet.management.api.mapper.LeagueMapper;
 import com.matj.bet.management.api.rest.league.ListLeagueRest;
 import com.matj.bet.management.api.service.league.ListLeagueService;
 import java.util.List;
@@ -15,11 +15,10 @@ public class ListLeagueRestImpl implements ListLeagueRest {
   private ListLeagueService service;
 
   @Autowired
-  private LeagueMapper mapper;
+  private LeagueResponseConverter converter;
 
   @Override
   public List<LeagueResponseDto> list() {
-    return service.execute().stream().map(mapper::toResponseDto).toList();
+    return service.execute().stream().map(converter::toResponse).toList();
   }
-
 }

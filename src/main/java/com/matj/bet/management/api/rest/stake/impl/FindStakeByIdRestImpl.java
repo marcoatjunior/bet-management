@@ -1,7 +1,7 @@
 package com.matj.bet.management.api.rest.stake.impl;
 
+import com.matj.bet.management.api.converter.response.StakeResponseConverter;
 import com.matj.bet.management.api.dto.response.stake.StakeResponseDto;
-import com.matj.bet.management.api.mapper.StakeMapper;
 import com.matj.bet.management.api.rest.stake.FindStakeByIdRest;
 import com.matj.bet.management.api.service.stake.FindStakeByIdService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +14,10 @@ public class FindStakeByIdRestImpl implements FindStakeByIdRest {
   private FindStakeByIdService service;
 
   @Autowired
-  private StakeMapper mapper;
+  private StakeResponseConverter converter;
 
   @Override
   public StakeResponseDto findById(String id) {
-    return mapper.toResponseDto(service.execute(id));
+    return converter.toResponse(service.execute(id));
   }
-
 }

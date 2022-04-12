@@ -1,7 +1,7 @@
 package com.matj.bet.management.api.rest.league.impl;
 
+import com.matj.bet.management.api.converter.response.LeagueResponseConverter;
 import com.matj.bet.management.api.dto.response.league.LeagueResponseDto;
-import com.matj.bet.management.api.mapper.LeagueMapper;
 import com.matj.bet.management.api.rest.league.FindLeagueByIdRest;
 import com.matj.bet.management.api.service.league.FindLeagueByIdService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +14,11 @@ public class FindLeagueByIdRestImpl implements FindLeagueByIdRest {
   private FindLeagueByIdService service;
 
   @Autowired
-  private LeagueMapper mapper;
+  private LeagueResponseConverter converter;
 
   @Override
   public LeagueResponseDto findById(String id) {
-    return mapper.toResponseDto(service.execute(id));
+    return converter.toResponse(service.execute(id));
   }
 
 }

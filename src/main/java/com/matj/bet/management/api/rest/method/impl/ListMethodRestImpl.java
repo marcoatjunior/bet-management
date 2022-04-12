@@ -1,7 +1,7 @@
 package com.matj.bet.management.api.rest.method.impl;
 
+import com.matj.bet.management.api.converter.response.MethodResponseConverter;
 import com.matj.bet.management.api.dto.response.method.MethodResponseDto;
-import com.matj.bet.management.api.mapper.MethodMapper;
 import com.matj.bet.management.api.rest.method.ListMethodRest;
 import com.matj.bet.management.api.service.method.ListMethodService;
 import java.util.List;
@@ -15,11 +15,11 @@ public class ListMethodRestImpl implements ListMethodRest {
   private ListMethodService service;
 
   @Autowired
-  private MethodMapper mapper;
+  private MethodResponseConverter converter;
 
   @Override
   public List<MethodResponseDto> list() {
-    return service.execute().stream().map(mapper::toResponseDto).toList();
+    return service.execute().stream().map(converter::toResponse).toList();
   }
 
 }

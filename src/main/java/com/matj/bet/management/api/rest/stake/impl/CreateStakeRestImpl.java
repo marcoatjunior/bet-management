@@ -1,7 +1,7 @@
 package com.matj.bet.management.api.rest.stake.impl;
 
+import com.matj.bet.management.api.converter.request.StakeRequestConverter;
 import com.matj.bet.management.api.dto.request.stake.StakeRequestDto;
-import com.matj.bet.management.api.mapper.StakeMapper;
 import com.matj.bet.management.api.provider.MessageProvider;
 import com.matj.bet.management.api.rest.stake.CreateStakeRest;
 import com.matj.bet.management.api.rest.stake.StakeMessageKey;
@@ -16,14 +16,14 @@ public class CreateStakeRestImpl implements CreateStakeRest {
   private CreateStakeService service;
 
   @Autowired
-  private StakeMapper mapper;
+  private StakeRequestConverter converter;
 
   @Autowired
   private MessageProvider messageProvider;
 
   @Override
   public String create(StakeRequestDto requestDto) {
-    service.execute(mapper.toModelDto(requestDto));
+    service.execute(converter.toModel(requestDto));
     return messageProvider.get(StakeMessageKey.CREATED.getKey());
   }
 }

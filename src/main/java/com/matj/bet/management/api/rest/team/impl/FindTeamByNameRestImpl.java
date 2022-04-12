@@ -1,7 +1,7 @@
 package com.matj.bet.management.api.rest.team.impl;
 
+import com.matj.bet.management.api.converter.response.TeamResponseConverter;
 import com.matj.bet.management.api.dto.response.team.TeamResponseDto;
-import com.matj.bet.management.api.mapper.TeamMapper;
 import com.matj.bet.management.api.rest.team.FindTeamByNameRest;
 import com.matj.bet.management.api.service.team.impl.FindTeamByNameServiceImpl;
 import java.util.List;
@@ -15,11 +15,11 @@ public class FindTeamByNameRestImpl implements FindTeamByNameRest {
   private FindTeamByNameServiceImpl service;
 
   @Autowired
-  private TeamMapper mapper;
+  private TeamResponseConverter converter;
 
   @Override
   public List<TeamResponseDto> findByName(String name) {
-    return service.execute(name).stream().map(mapper::toResponseDto).toList();
+    return service.execute(name).stream().map(converter::toResponse).toList();
   }
 
 }

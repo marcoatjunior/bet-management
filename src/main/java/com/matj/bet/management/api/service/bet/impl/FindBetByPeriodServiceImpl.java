@@ -22,7 +22,7 @@ public class FindBetByPeriodServiceImpl implements FindBetByPeriodService {
   public List<BetModelDto> execute(LocalDate start, LocalDate end) {
     return repository.findByEventDateBetween(start, end)
         .stream()
-        .map(mapper::toModelDto)
+        .map(mapper::toModel)
         .toList();
   }
 

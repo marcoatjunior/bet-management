@@ -1,5 +1,6 @@
 package com.matj.bet.management.api.service.bet.impl;
 
+import com.matj.bet.management.api.converter.request.BetRequestConverter;
 import com.matj.bet.management.api.dto.model.bet.BetModelDto;
 import com.matj.bet.management.api.dto.request.bet.BetRequestDto;
 import com.matj.bet.management.api.mapper.BetMapper;
@@ -33,6 +34,9 @@ public class CreateBetServiceImpl implements CreateBetService {
   @Autowired
   private BetMapper mapper;
 
+  @Autowired
+  private BetRequestConverter converter;
+
   @Override
   public void execute(BetRequestDto requestDto) {
     var modelDto = performInsert(requestDto);
@@ -40,7 +44,7 @@ public class CreateBetServiceImpl implements CreateBetService {
   }
 
   private BetModelDto performInsert(BetRequestDto requestDto) {
-    return mapper.toModelDto(requestDto).toBuilder()
+    return converter.toModel(requestDto).toBuilder()
         .league(findLeagueByIdService.execute(requestDto.getLeagueId()))
         .home(findTeamByIdService.execute(requestDto.getHomeId()))
         .away(findTeamByIdService.execute(requestDto.getAwayId()))
