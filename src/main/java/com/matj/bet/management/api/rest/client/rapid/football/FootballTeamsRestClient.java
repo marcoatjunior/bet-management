@@ -8,5 +8,8 @@ import retrofit2.http.Query;
 public interface FootballTeamsRestClient {
 
   @GET("teams")
+  Call<TeamApiListModelDto> findById(@Query("id") Long id);
+
+  @GET("teams")
   Call<TeamApiListModelDto> findByName(@Query("search") String name);
 }

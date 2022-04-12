@@ -1,9 +1,5 @@
 package com.matj.bet.management.api.dto.request.bet;
 
-import com.matj.bet.management.api.dto.request.league.LeagueRequestDto;
-import com.matj.bet.management.api.dto.request.method.MethodRequestDto;
-import com.matj.bet.management.api.dto.request.stake.StakeRequestDto;
-import com.matj.bet.management.api.dto.request.team.TeamRequestDto;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -19,19 +15,19 @@ public class BetRequestDto implements Serializable {
   private LocalDateTime time;
   
   @NotNull
-  private LeagueRequestDto league;
+  private String leagueId;
 
   @NotNull
-  private TeamRequestDto home;
+  private Long homeId;
 
   @NotNull
-  private TeamRequestDto away;
+  private Long awayId;
 
   @NotNull
-  private MethodRequestDto method;
+  private String methodId;
 
   @NotNull
-  private StakeRequestDto stake;
+  private String stakeId;
 
   @NotNull
   private BigDecimal odd;

@@ -37,14 +37,9 @@ public class BetMapper {
   }
 
   public BetModelDto toModelDto(BetRequestDto requestDto) {
-    var modelDto = new BetModelDto();
-    modelDto.setTime(requestDto.getTime());
-    modelDto.setLeague(leagueMapper.toModelDto(requestDto.getLeague()));
-    modelDto.setHome(teamMapper.toModelDto(requestDto.getHome()));
-    modelDto.setAway(teamMapper.toModelDto(requestDto.getAway()));
-    modelDto.setMethod(methodMapper.toModelDto(requestDto.getMethod()));
-    modelDto.setStake(stakeMapper.toModelDto(requestDto.getStake()));
-    modelDto.setOdd(requestDto.getOdd());
-    return modelDto;
+    return BetModelDto.builder()
+        .time(requestDto.getTime())
+        .odd(requestDto.getOdd())
+        .build();
   }
 }

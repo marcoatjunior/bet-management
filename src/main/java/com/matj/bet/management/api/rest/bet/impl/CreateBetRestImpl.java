@@ -1,7 +1,6 @@
 package com.matj.bet.management.api.rest.bet.impl;
 
 import com.matj.bet.management.api.dto.request.bet.BetRequestDto;
-import com.matj.bet.management.api.mapper.BetMapper;
 import com.matj.bet.management.api.provider.MessageProvider;
 import com.matj.bet.management.api.rest.bet.BetMessageKey;
 import com.matj.bet.management.api.rest.bet.CreateBetRest;
@@ -16,14 +15,11 @@ public class CreateBetRestImpl implements CreateBetRest {
   private CreateBetService service;
 
   @Autowired
-  private BetMapper mapper;
-
-  @Autowired
   private MessageProvider messageProvider;
 
   @Override
   public String create(BetRequestDto requestDto) {
-    service.execute(mapper.toModelDto(requestDto));
+    service.execute(requestDto);
     return messageProvider.get(BetMessageKey.CREATED.getKey());
   }
 }

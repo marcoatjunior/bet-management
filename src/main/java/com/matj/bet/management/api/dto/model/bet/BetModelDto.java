@@ -7,9 +7,11 @@ import com.matj.bet.management.api.dto.model.team.TeamModelDto;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import lombok.Builder;
 import lombok.Data;
 
 @Data
+@Builder
 public class BetModelDto implements Serializable {
 
   private static final long serialVersionUID = 6535376215231L;

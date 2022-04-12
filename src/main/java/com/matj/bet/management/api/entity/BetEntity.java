@@ -19,7 +19,7 @@ public class BetEntity {
 
   @Id
   private String id;
-  
+
   private LocalDateTime time;
 
   @DBRef
@@ -27,10 +27,10 @@ public class BetEntity {
 
   @DBRef
   private TeamEntity home;
-  
+
   @DBRef
   private TeamEntity away;
-  
+
   private String bet;
 
   @DBRef
