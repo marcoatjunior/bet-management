@@ -2,7 +2,7 @@ package com.matj.bet.management.api.dto.request.bet;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
 
@@ -12,7 +12,7 @@ public class BetRequestDto implements Serializable {
   private static final long serialVersionUID = -384732984732984L;
 
   @NotNull
-  private LocalDateTime time;
+  private LocalDate eventDate;
   
   @NotNull
   private String leagueId;
@@ -22,6 +22,9 @@ public class BetRequestDto implements Serializable {
 
   @NotNull
   private String awayId;
+
+  @NotNull
+  private String bet;
 
   @NotNull
   private String methodId;

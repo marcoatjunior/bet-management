@@ -1,7 +1,8 @@
 package com.matj.bet.management.api.entity;
 
+import com.matj.bet.management.api.enumeration.BetResultEnum;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,7 +21,7 @@ public class BetEntity {
   @Id
   private String id;
 
-  private LocalDateTime time;
+  private LocalDate eventDate;
 
   @DBRef
   private LeagueEntity league;
@@ -40,5 +41,5 @@ public class BetEntity {
   private StakeEntity stake;
 
   private BigDecimal odd;
-  private BigDecimal result;
+  private BetResultEnum result;
 }

@@ -4,9 +4,10 @@ import com.matj.bet.management.api.dto.model.league.LeagueModelDto;
 import com.matj.bet.management.api.dto.model.method.MethodModelDto;
 import com.matj.bet.management.api.dto.model.stake.StakeModelDto;
 import com.matj.bet.management.api.dto.model.team.TeamModelDto;
+import com.matj.bet.management.api.enumeration.BetResultEnum;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import lombok.Builder;
 import lombok.Data;
 
@@ -17,7 +18,7 @@ public class BetModelDto implements Serializable {
   private static final long serialVersionUID = 6535376215231L;
 
   private String id;
-  private LocalDateTime time;
+  private LocalDate eventDate;
   private LeagueModelDto league;
   private TeamModelDto home;
   private TeamModelDto away;
@@ -25,5 +26,5 @@ public class BetModelDto implements Serializable {
   private MethodModelDto method;
   private StakeModelDto stake;
   private BigDecimal odd;
-  private BigDecimal result;
+  private BetResultEnum result;
 }
