@@ -8,10 +8,10 @@ import org.springframework.stereotype.Component;
 public class TeamApiMapper {
 
   public TeamEntity toEntity(TeamApiModelDto modelDto) {
-    var entity = new TeamEntity();
-    entity.setApiId(modelDto.getId());
-    entity.setName(modelDto.getName());
-    entity.setLogo(modelDto.getLogo());
-    return entity;
+    return TeamEntity.builder()
+        .apiId(modelDto.getId())
+        .name(modelDto.getName())
+        .logo(modelDto.getLogo())
+        .build();
   }
 }

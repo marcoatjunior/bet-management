@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 public class MethodRequestConverter {
 
   public MethodModelDto toModel(MethodRequestDto requestDto) {
-    var modelDto = new MethodModelDto();
-    modelDto.setName(requestDto.getName());
-    return modelDto;
+    return MethodModelDto.builder()
+        .name(requestDto.getName())
+        .build();
   }
 }

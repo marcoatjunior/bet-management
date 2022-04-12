@@ -7,19 +7,19 @@ import org.springframework.stereotype.Component;
 @Component
 public class StakeMapper {
 
-  public StakeEntity toEntity(StakeModelDto requestDto) {
-    var entity = new StakeEntity();
-    entity.setId(requestDto.getId());
-    entity.setSize(requestDto.getSize());
-    entity.setWeight(requestDto.getWeight());
-    return entity;
+  public StakeEntity toEntity(StakeModelDto modelDto) {
+    return StakeEntity.builder()
+        .id(modelDto.getId())
+        .size(modelDto.getSize())
+        .weight(modelDto.getWeight())
+        .build();
   }
 
   public StakeModelDto toModel(StakeEntity entity) {
-    var modelDto = new StakeModelDto();
-    modelDto.setId(entity.getId());
-    modelDto.setSize(entity.getSize());
-    modelDto.setWeight(entity.getWeight());
-    return modelDto;
+    return StakeModelDto.builder()
+        .id(entity.getId())
+        .size(entity.getSize())
+        .weight(entity.getWeight())
+        .build();
   }
 }

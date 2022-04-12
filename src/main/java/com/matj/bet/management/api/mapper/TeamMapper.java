@@ -8,20 +8,20 @@ import org.springframework.stereotype.Component;
 public class TeamMapper {
 
   public TeamEntity toEntity(TeamModelDto modelDto) {
-    var entity = new TeamEntity();
-    entity.setId(modelDto.getId());
-    entity.setApiId(modelDto.getApiId());
-    entity.setName(modelDto.getName());
-    entity.setLogo(modelDto.getLogo());
-    return entity;
+    return TeamEntity.builder()
+        .id(modelDto.getId())
+        .apiId(modelDto.getApiId())
+        .name(modelDto.getName())
+        .logo(modelDto.getLogo())
+        .build();
   }
 
   public TeamModelDto toModel(TeamEntity entity) {
-    var modelDto = new TeamModelDto();
-    modelDto.setId(entity.getId());
-    modelDto.setApiId(entity.getApiId());
-    modelDto.setName(entity.getName());
-    modelDto.setLogo(entity.getLogo());
-    return modelDto;
+    return TeamModelDto.builder()
+        .id(entity.getId())
+        .apiId(entity.getApiId())
+        .name(entity.getName())
+        .logo(entity.getLogo())
+        .build();
   }
 }

@@ -8,9 +8,9 @@ import org.springframework.stereotype.Component;
 public class StakeRequestConverter {
 
   public StakeModelDto toModel(StakeRequestDto requestDto) {
-    var modelDto = new StakeModelDto();
-    modelDto.setSize(requestDto.getSize());
-    modelDto.setWeight(requestDto.getWeight());
-    return modelDto;
+    return StakeModelDto.builder()
+        .size(requestDto.getSize())
+        .weight(requestDto.getWeight())
+        .build();
   }
 }

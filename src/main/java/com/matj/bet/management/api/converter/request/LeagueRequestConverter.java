@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 public class LeagueRequestConverter {
   
   public LeagueModelDto toModel(LeagueRequestDto requestDto) {
-    var modelDto = new LeagueModelDto();
-    modelDto.setName(requestDto.getName());
-    return modelDto;
+    return LeagueModelDto.builder()
+        .name(requestDto.getName())
+        .build();
   }
 }

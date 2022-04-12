@@ -21,18 +21,18 @@ public class BetMapper {
   private TeamMapper teamMapper;
 
   public BetEntity toEntity(BetModelDto modelDto) {
-    var entity = new BetEntity();
-    entity.setId(modelDto.getId());
-    entity.setEventDate(modelDto.getEventDate());
-    entity.setLeague(leagueMapper.toEntity(modelDto.getLeague()));
-    entity.setHome(teamMapper.toEntity(modelDto.getHome()));
-    entity.setAway(teamMapper.toEntity(modelDto.getAway()));
-    entity.setBet(modelDto.getBet());
-    entity.setMethod(methodMapper.toEntity(modelDto.getMethod()));
-    entity.setStake(stakeMapper.toEntity(modelDto.getStake()));
-    entity.setOdd(modelDto.getOdd());
-    entity.setResult(modelDto.getResult());
-    return entity;
+    return BetEntity.builder()
+        .id(modelDto.getId())
+        .eventDate(modelDto.getEventDate())
+        .league(leagueMapper.toEntity(modelDto.getLeague()))
+        .home(teamMapper.toEntity(modelDto.getHome()))
+        .away(teamMapper.toEntity(modelDto.getAway()))
+        .bet(modelDto.getBet())
+        .method(methodMapper.toEntity(modelDto.getMethod()))
+        .stake(stakeMapper.toEntity(modelDto.getStake()))
+        .odd(modelDto.getOdd())
+        .result(modelDto.getResult())
+        .build();
   }
 
   public BetModelDto toModel(BetEntity entity) {

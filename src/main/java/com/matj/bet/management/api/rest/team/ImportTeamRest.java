@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 public interface ImportTeamRest extends TeamRest {
 
-  @PostMapping
+  @PostMapping("import")
   @ResponseStatus(HttpStatus.CREATED)
   @Operation(description = "Importa times de API Football")
   public String doImport(@RequestBody TeamRequestDto requestDto);

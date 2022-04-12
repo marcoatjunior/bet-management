@@ -7,17 +7,17 @@ import org.springframework.stereotype.Component;
 @Component
 public class LeagueMapper {
 
-  public LeagueEntity toEntity(LeagueModelDto requestDto) {
-    var entity = new LeagueEntity();
-    entity.setId(requestDto.getId());
-    entity.setName(requestDto.getName());
-    return entity;
+  public LeagueEntity toEntity(LeagueModelDto modelDto) {
+    return LeagueEntity.builder()
+        .id(modelDto.getId())
+        .name(modelDto.getName())
+        .build();
   }
 
   public LeagueModelDto toModel(LeagueEntity entity) {
-    var modelDto = new LeagueModelDto();
-    modelDto.setId(entity.getId());
-    modelDto.setName(entity.getName());
-    return modelDto;
+    return LeagueModelDto.builder()
+        .id(entity.getId())
+        .name(entity.getName())
+        .build();
   }
 }
