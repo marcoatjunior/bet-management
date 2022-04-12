@@ -4,6 +4,7 @@ import com.matj.bet.management.api.dto.model.league.LeagueModelDto;
 import com.matj.bet.management.api.mapper.LeagueMapper;
 import com.matj.bet.management.api.repository.league.LeagueRepository;
 import com.matj.bet.management.api.service.league.ListLeagueService;
+import java.util.Comparator;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,7 +20,10 @@ public class ListLeagueServiceImpl implements ListLeagueService {
 
   @Override
   public List<LeagueModelDto> execute() {
-    return repository.findAll().stream().map(mapper::toModel).toList();
+    return repository.findAll().stream()
+        .map(mapper::toModel)
+        .sorted(Comparator.comparing(LeagueModelDto::getName))
+        .toList();
   }
 
 }

@@ -4,6 +4,7 @@ import com.matj.bet.management.api.dto.model.stake.StakeModelDto;
 import com.matj.bet.management.api.mapper.StakeMapper;
 import com.matj.bet.management.api.repository.stake.StakeRepository;
 import com.matj.bet.management.api.service.stake.ListStakeService;
+import java.util.Comparator;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,7 +20,10 @@ public class ListStakeServiceImpl implements ListStakeService {
 
   @Override
   public List<StakeModelDto> execute() {
-    return repository.findAll().stream().map(mapper::toModel).toList();
+    return repository.findAll().stream()
+        .map(mapper::toModel)
+        .sorted(Comparator.comparing(StakeModelDto::getWeight))
+        .toList();
   }
 
 }
