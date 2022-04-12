@@ -18,10 +18,10 @@ public class BetRequestDto implements Serializable {
   private String leagueId;
 
   @NotNull
-  private Long homeId;
+  private String homeId;
 
   @NotNull
-  private Long awayId;
+  private String awayId;
 
   @NotNull
   private String methodId;

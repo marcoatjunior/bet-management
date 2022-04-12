@@ -1,8 +1,8 @@
 package com.matj.bet.management.api.service.team;
 
-import com.matj.bet.management.api.dto.model.team.TeamModelDto;
+import com.matj.bet.management.api.dto.model.team.api.TeamApiModelDto;
 
 public interface CreateTeamService {
 
-  TeamModelDto execute(Long id);
+  void execute(TeamApiModelDto modelDto);
 }

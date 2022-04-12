@@ -8,7 +8,7 @@ import com.matj.bet.management.api.service.bet.CreateBetService;
 import com.matj.bet.management.api.service.league.FindLeagueByIdService;
 import com.matj.bet.management.api.service.method.FindMethodByIdService;
 import com.matj.bet.management.api.service.stake.FindStakeByIdService;
-import com.matj.bet.management.api.service.team.CreateTeamService;
+import com.matj.bet.management.api.service.team.FindTeamByIdService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +19,10 @@ public class CreateBetServiceImpl implements CreateBetService {
   private BetRepository repository;
 
   @Autowired
-  private CreateTeamService createTeamService;
+  private FindLeagueByIdService findLeagueByIdService;
+
+  @Autowired
+  private FindTeamByIdService findTeamByIdService;
 
   @Autowired
   private FindStakeByIdService findStakeByIdService;
@@ -28,23 +31,21 @@ public class CreateBetServiceImpl implements CreateBetService {
   private FindMethodByIdService findMethodByIdService;
 
   @Autowired
-  private FindLeagueByIdService findLeagueByIdService;
-
-  @Autowired
   private BetMapper mapper;
 
   @Override
   public void execute(BetRequestDto requestDto) {
-    var modelDto = mapper.toModelDto(requestDto);
-    performInsert(requestDto, modelDto);
+    var modelDto = performInsert(requestDto);
     repository.insert(mapper.toEntity(modelDto));
   }
 
-  private void performInsert(BetRequestDto requestDto, BetModelDto modelDto) {
-    modelDto.setLeague(findLeagueByIdService.execute(requestDto.getLeagueId()));
-    modelDto.setStake(findStakeByIdService.execute(requestDto.getStakeId()));
-    modelDto.setMethod(findMethodByIdService.execute(requestDto.getMethodId()));
-    modelDto.setHome(createTeamService.execute(requestDto.getHomeId()));
-    modelDto.setAway(createTeamService.execute(requestDto.getAwayId()));
+  private BetModelDto performInsert(BetRequestDto requestDto) {
+    return mapper.toModelDto(requestDto).toBuilder()
+        .league(findLeagueByIdService.execute(requestDto.getLeagueId()))
+        .home(findTeamByIdService.execute(requestDto.getHomeId()))
+        .away(findTeamByIdService.execute(requestDto.getAwayId()))
+        .stake(findStakeByIdService.execute(requestDto.getStakeId()))
+        .method(findMethodByIdService.execute(requestDto.getMethodId()))
+        .build();
   }
 }

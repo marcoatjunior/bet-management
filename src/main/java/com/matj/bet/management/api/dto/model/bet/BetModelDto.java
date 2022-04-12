@@ -11,7 +11,7 @@ import lombok.Builder;
 import lombok.Data;
 
 @Data
-@Builder
+@Builder(toBuilder = true)
 public class BetModelDto implements Serializable {
 
   private static final long serialVersionUID = 6535376215231L;
